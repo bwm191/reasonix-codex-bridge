@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build output
+build/
+dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Reasonix internal (don't commit agent state)
+.reasonix/desktop-topic-*
+.reasonix/skills/
+.codegraph/
+
+# Logs
+*.log
