@@ -14,7 +14,7 @@ The default target is `http://127.0.0.1:8787`.
 1. Start Reasonix serve:
 
 ```bash
-npx reasonix@1.6.0-rc.1 serve --addr 127.0.0.1:8787
+npx reasonix@1.8.0-rc.1 serve --addr 127.0.0.1:8787
 ```
 
 2. Build the bridge:
@@ -57,8 +57,8 @@ CLI environment.
 Useful checks:
 
 ```bash
-npx reasonix@1.6.0-rc.1 doctor --json
-npx reasonix@1.6.0-rc.1 serve --addr 127.0.0.1:8787
+npx reasonix@1.8.0-rc.1 doctor --json
+npx reasonix@1.8.0-rc.1 serve --addr 127.0.0.1:8787
 ```
 
 Then call the MCP tool `reasonix_status`. It reports the bridge `serveUrl`,
@@ -88,7 +88,7 @@ enabled = true
 env = {
   REASONIX_AUTO_LAUNCH = "true",
   REASONIX_COMMAND = "npx",
-  REASONIX_ARGS = "reasonix@1.6.0-rc.1 serve"
+  REASONIX_ARGS = "reasonix@1.8.0-rc.1 serve"
 }
 ```
 

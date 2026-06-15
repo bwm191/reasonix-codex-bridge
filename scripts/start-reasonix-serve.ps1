@@ -23,4 +23,4 @@ if (Test-Path $legacyConfigPath) {
   }
 }
 
-npx --yes reasonix@1.6.0-rc.1 serve --addr $Addr
+npx --yes reasonix@1.8.0-rc.1 serve --addr $Addr

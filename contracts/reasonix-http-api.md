@@ -1,7 +1,7 @@
 # Reasonix HTTP API Contract
 
 **日期**: 2026-06-12
-**Reasonix 版本**: `1.6.0-rc.1`
+**Reasonix 版本**: `1.8.0-rc.1`
 **Base URL**: `http://127.0.0.1:8787`
 
 > 通过 `reasonix serve -addr 127.0.0.1:8787` 启动，实际探测结果。
