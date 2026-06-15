@@ -231,7 +231,7 @@ async function main() {
   try {
     await fetch(`${BASE}/status`);
   } catch {
-    console.log("\n❌ Reasonix not reachable. Start with: npx reasonix serve -addr 127.0.0.1:8787\n");
+    console.log("\nReasonix not reachable. Start with: npx reasonix@1.8.0-rc.1 serve --addr 127.0.0.1:8787\n");
     process.exit(1);
   }
 

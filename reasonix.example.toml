@@ -1,0 +1,32 @@
+# Reasonix project configuration example.
+#
+# Copy this file to reasonix.toml for local use. Keep reasonix.toml untracked:
+# it can contain machine-specific paths, permissions, and provider choices.
+# Secrets should come from environment variables referenced by api_key_env.
+
+config_version = 2
+default_model = "deepseek/deepseek-v4-pro"
+
+[agent]
+max_steps = 0
+planner_max_steps = 12
+temperature = 0.0
+auto_plan = "off"
+
+[tools]
+enabled = []
+bash_timeout_seconds = 120
+
+[codegraph]
+enabled = true
+auto_install = true
+
+[lsp]
+enabled = true
+
+[permissions]
+mode = "ask"
+
+[sandbox]
+bash = "enforce"
+network = true

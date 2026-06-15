@@ -1,10 +1,10 @@
 param(
-  [string]$Addr = "127.0.0.1:8787",
   [Parameter(ValueFromRemainingArguments = $true)]
   [string[]]$RemainingArgs
 )
 
 $ErrorActionPreference = "Stop"
+$Addr = "127.0.0.1:8787"
 
 for ($i = 0; $i -lt $RemainingArgs.Count; $i++) {
   if ($RemainingArgs[$i] -eq "--addr" -and ($i + 1) -lt $RemainingArgs.Count) {
@@ -13,13 +13,15 @@ for ($i = 0; $i -lt $RemainingArgs.Count; $i++) {
   }
 }
 
-$legacyConfigPath = Join-Path $env:USERPROFILE ".reasonix\config.json"
-if (Test-Path $legacyConfigPath) {
-  $text = [System.IO.File]::ReadAllText($legacyConfigPath)
-  $pattern = [regex]::Escape('"apiKey"') + '\s*:\s*"([^"]*)"'
-  $match = [regex]::Match($text, $pattern)
-  if ($match.Success -and $match.Groups[1].Value) {
-    $env:DEEPSEEK_API_KEY = $match.Groups[1].Value
+if ($env:REASONIX_USE_DESKTOP_KEY -eq "true") {
+  $legacyConfigPath = Join-Path $env:USERPROFILE ".reasonix\config.json"
+  if (Test-Path $legacyConfigPath) {
+    $text = [System.IO.File]::ReadAllText($legacyConfigPath)
+    $pattern = [regex]::Escape('"apiKey"') + '\s*:\s*"([^"]*)"'
+    $match = [regex]::Match($text, $pattern)
+    if ($match.Success -and $match.Groups[1].Value) {
+      $env:DEEPSEEK_API_KEY = $match.Groups[1].Value
+    }
   }
 }
 

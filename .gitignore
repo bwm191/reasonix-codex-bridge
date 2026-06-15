@@ -18,6 +18,8 @@ Thumbs.db
 # Environment
 .env
 .env.local
+reasonix.toml
+reasonix.local.toml
 
 # Reasonix internal (don't commit agent state)
 .reasonix/desktop-topic-*

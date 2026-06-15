@@ -29,7 +29,7 @@ npm run build
 ```toml
 [mcp_servers.reasonix]
 command = "node"
-args = ["E:/rea MCP/build/index.js"]
+args = ["/absolute/path/to/reasonix-codex-bridge/build/index.js"]
 startup_timeout_sec = 10
 tool_timeout_sec = 330
 enabled = true
@@ -53,6 +53,10 @@ Provider secrets are read from the configured `api_key_env`, for example
 `DEEPSEEK_API_KEY`. A desktop app can still work while the CLI serve path fails
 if the desktop app is using a legacy or app-local key that is not present in the
 CLI environment.
+
+For personal Windows setups, `scripts/start-reasonix-serve.ps1` can optionally
+copy the legacy desktop `apiKey` into the child process environment. This is
+disabled by default and requires `REASONIX_USE_DESKTOP_KEY=true`.
 
 Useful checks:
 
@@ -81,7 +85,7 @@ Auto-launch example:
 ```toml
 [mcp_servers.reasonix]
 command = "node"
-args = ["E:/rea MCP/build/index.js"]
+args = ["/absolute/path/to/reasonix-codex-bridge/build/index.js"]
 startup_timeout_sec = 15
 tool_timeout_sec = 330
 enabled = true
@@ -90,6 +94,24 @@ env = {
   REASONIX_COMMAND = "npx",
   REASONIX_ARGS = "reasonix@1.8.0-rc.1 serve"
 }
+```
+
+Windows example using the local wrapper script:
+
+```toml
+[mcp_servers.reasonix]
+command = "node"
+args = ["C:/path/to/reasonix-codex-bridge/build/index.js"]
+startup_timeout_sec = 30
+tool_timeout_sec = 330
+enabled = true
+
+[mcp_servers.reasonix.env]
+REASONIX_AUTO_LAUNCH = "true"
+REASONIX_COMMAND = "powershell.exe"
+REASONIX_ARGS = '-NoProfile -ExecutionPolicy Bypass -File "C:/path/to/reasonix-codex-bridge/scripts/start-reasonix-serve.ps1"'
+REASONIX_USE_DESKTOP_KEY = "true"
+REASONIX_LOG_PATH = 'C:/path/to/reasonix-codex-bridge/tmp/reasonix-serve.log'
 ```
 
 Auto-launch is restricted to localhost targets.
