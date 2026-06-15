@@ -24,5 +24,6 @@ Thumbs.db
 .reasonix/skills/
 .codegraph/
 
-# Logs
+# Logs and temp
 *.log
+tmp/

@@ -1,0 +1,26 @@
+{
+  "name": "reasonix-codex-bridge",
+  "version": "0.2.0",
+  "description": "Codex → Reasonix MCP Bridge — turn lifecycle manager + MCP adapter",
+  "type": "module",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "node test/smoke.mjs",
+    "test:unit": "node test/turn-coordinator-fast-completion.mjs && node test/mcp-status-diagnostics.mjs",
+    "test:mcp": "node test/phase-5/test-matrix.mjs",
+    "test:submit": "node test/mcp-submit-completion.mjs",
+    "check": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^25.9.3",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0"
+  }
+}
